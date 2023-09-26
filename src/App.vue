@@ -1,26 +1,24 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <layout-navbar />
+
+    <base-container class="p-4">
+      <RouterView />
+    </base-container>
+  </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+// Vue
+import { onMounted } from "vue";
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+// Flowbite
+import { initFlowbite } from "flowbite";
+
+// Components
+import LayoutNavbar from "@/components/layouts/LayoutNavbar.vue";
+
+onMounted(() => {
+  initFlowbite();
+});
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
